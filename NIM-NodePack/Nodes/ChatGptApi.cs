@@ -14,6 +14,53 @@ namespace NIM_NodePack.Nodes
         private const string UserAgentStr = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36";
         private static readonly Encoding Utf8NoBom = new UTF8Encoding(false);
 
+        public string[] AvailableModels { get; set; } = new string[]
+        {
+            // GPT-6
+            "gpt-6-astra",
+            "gpt-6.1-sol",
+            "gpt-6.1-terra",
+            "gpt-6-sol",
+            "gpt-6-luna",
+
+            // GPT-5.6
+            "gpt-5.6-sol",
+            "gpt-5.6-terra",
+            "gpt-5.6-luna",
+
+            // GPT-5.5
+            "gpt-5.5",
+
+            // GPT-5.4
+            "gpt-5.4",
+            "gpt-5.4-mini",
+
+            // GPT-5.2
+            "gpt-5.2",
+            "gpt-5.2-pro",
+
+            // GPT-5
+            "gpt-5",
+            "gpt-5-mini",
+            "gpt-5-nano",
+
+            // GPT-4.1
+            "gpt-4.1",
+            "gpt-4.1-mini",
+            "gpt-4.1-nano",
+
+            // GPT-4o
+            "gpt-4o",
+            "gpt-4o-mini",
+
+            // Reasoning
+            "o3",
+            "o4-mini",
+
+            // Coding
+            "gpt-5.3-codex"
+        };
+
         public int Type { get; set; } = 1;
         public string Name { get; set; } = "ChatGpt";
         public string Model { get; set; } = "";

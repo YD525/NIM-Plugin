@@ -14,6 +14,18 @@ namespace NIM_NodePack.Nodes
         private const string UserAgentStr = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36";
         private static readonly Encoding Utf8NoBom = new UTF8Encoding(false);
 
+        public string[] AvailableModels { get; set; } = new string[]
+        {
+            "openai/gpt-6.1-sol",
+            "openai/gpt-5.2-turbo",
+            "z-ai/glm-5.3",
+            "z-ai/glm-5.2",
+            "qwen/qwen3-coder",
+            "qwen/qwen3-max",
+            "anthropic/claude-4-opus",
+            "meta/llama-4-405b"
+        };
+
         public int Type { get; set; } = 1;
         public string Name { get; set; } = "NanoGPT";
         public string Model { get; set; } = "";

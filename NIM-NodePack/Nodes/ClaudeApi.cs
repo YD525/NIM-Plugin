@@ -15,6 +15,14 @@ namespace NIM_NodePack.Nodes
         private const string UserAgentStr = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36";
         private static readonly Encoding Utf8NoBom = new UTF8Encoding(false);
 
+        public string[] AvailableModels { get; set; } = new string[]
+        {
+            "claude-fable-5-2",
+            "claude-opus-5-5",
+            "claude-sonnet-5-5",
+            "claude-haiku-5-5"
+        };
+
         public int Type { get; set; } = 1;
 
         public string Name { get; set; } = "Claude";

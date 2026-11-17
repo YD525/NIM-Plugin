@@ -17,6 +17,11 @@
         string Model { get; set; }
 
         /// <summary>
+        /// Available Models. The first item in the array is the default model.
+        /// </summary>
+        string[] AvailableModels { get; set; }
+
+        /// <summary>
         /// Translate
         /// </summary>
         /// <param name="ApiKey">CurrentKey</param>

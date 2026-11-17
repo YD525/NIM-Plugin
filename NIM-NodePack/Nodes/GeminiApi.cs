@@ -15,6 +15,19 @@ namespace NIM_NodePack.Nodes
         private const string UserAgentStr = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36";
         private static readonly Encoding Utf8NoBom = new UTF8Encoding(false);
 
+        public string[] AvailableModels { get; set; } = new string[]
+        {
+            // Gemini 2.0 Series (Latest Generation Models)
+            "gemini-2.0-flash",
+            "gemini-2.0-flash-lite",
+            "gemini-2.0-pro-exp",
+
+            // Gemini 1.5 Series (Stable Production Models)
+            "gemini-1.5-pro",
+            "gemini-1.5-flash",
+            "gemini-1.5-flash-8b"
+        };
+
         public int Type { get; set; } = 1;
         public string Name { get; set; } = "Gemini";
         public string Model { get; set; } = "";

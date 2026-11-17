@@ -15,6 +15,12 @@ namespace NIM_NodePack.Nodes
         private const string UserAgentStr = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36";
         private static readonly Encoding Utf8NoBom = new UTF8Encoding(false);
 
+        public string[] AvailableModels { get; set; } = new string[]
+        {
+            "deepseek-flash",
+            "deepseek-v4-pro"
+        };
+
         public int Type { get; set; } = 1;
 
         public string Name { get; set; } = "DeepSeek";
