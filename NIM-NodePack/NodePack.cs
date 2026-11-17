@@ -23,26 +23,26 @@ namespace NIM_NodePack
             {
                 ParamsRef = new object[3];
 
-                ParamsRef[0] = new List<KeyValuePair<string, Type>>()
+                ParamsRef[0] = new List<Type>()
                 {
                     //Need to implement the I_Local_AI_Node interface
-                    new KeyValuePair<string,Type>("LocalAI",typeof(LocalAI))
+                    typeof(LocalAI)
                 };
 
-                ParamsRef[1] = new List<KeyValuePair<string, Type>>()
+                ParamsRef[1] = new List<Type>()
                 {
                     //Need to implement the I_AI_Node interface
-                    new KeyValuePair<string,Type>("Claude",typeof(ClaudeApi)),
-                    new KeyValuePair<string,Type>("ChatGpt",typeof(ChatGptApi)),
-                    new KeyValuePair<string,Type>("Gemini",typeof(GeminiApi)),
-                    new KeyValuePair<string,Type>("NanoGpt",typeof(NanoGptApi)),
-                    new KeyValuePair<string,Type>("DeepSeek",typeof(DeepSeekApi))
+                    typeof(ClaudeApi),
+                    typeof(ChatGptApi),
+                    typeof(GeminiApi),
+                    typeof(NanoGptApi),
+                    typeof(DeepSeekApi)
                 }; 
 
-                ParamsRef[2] = new List<KeyValuePair<string, Type>>()
+                ParamsRef[2] = new List<Type>()
                 {
                     //Need to implement I_Node interface
-                    new KeyValuePair<string,Type>("DeepL",typeof(DeepLApi))
+                    typeof(DeepLApi)
                 };
             }
         }

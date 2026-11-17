@@ -27,7 +27,7 @@ namespace NIM_NodePack.Nodes
         };
 
         public int Type { get; set; } = 1;
-        public string Name { get; set; } = "NanoGPT";
+        public string Name { get; set; } = "NanoGpt";
         public string Model { get; set; } = "";
         public int TimeoutMs { get; set; } = 120000;
 
