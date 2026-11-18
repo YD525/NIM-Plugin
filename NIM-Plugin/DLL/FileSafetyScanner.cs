@@ -568,7 +568,7 @@ namespace NIM_Plugin.DLL
         public bool IsSafe { get; set; }
 
         /// <summary>
-        /// Human-readable list of every violation found in the assembly.
+        /// List of violations.
         /// </summary>
         public List<string> Violations { get; } = new List<string>();
 
