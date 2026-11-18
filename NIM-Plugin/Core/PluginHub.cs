@@ -30,7 +30,7 @@ namespace NIM_Plugin.Core
             public Exception LastError { get; internal set; }
         }
 
-        private readonly List<PluginEntry> Plugins = new List<PluginEntry>();
+        private readonly List<PluginEntry> _Plugins = new List<PluginEntry>();
         private object _Lock = new object();
 
         public void Init()
@@ -41,7 +41,7 @@ namespace NIM_Plugin.Core
         {
             lock (_Lock)
             {
-                Plugins.Clear();
+                _Plugins.Clear();
             }
 
             string PluginDir = NIMPlugin.GetFullPath(NIMPlugin.PluginsPath);
@@ -148,7 +148,7 @@ namespace NIM_Plugin.Core
 
                         lock (_Lock)
                         {
-                            Plugins.Add(Entry);
+                            _Plugins.Add(Entry);
                         }
                     }
                 }
@@ -193,7 +193,7 @@ namespace NIM_Plugin.Core
 
             lock (_Lock) 
             { 
-                Snapshot = Plugins.ToList(); 
+                Snapshot = _Plugins.ToList(); 
             }
 
             foreach (PluginEntry Entry in Snapshot)
@@ -251,19 +251,23 @@ namespace NIM_Plugin.Core
 
             lock (_Lock)
             {
-                Snapshot = Plugins.ToList();
+                Snapshot = _Plugins.ToList();
             }
 
             foreach (var Get in Snapshot)
             {
-                string[] Params = new string[6];
-                Params[0] = Get.FilePath;
-                Params[1] = Get.Name;
-                Params[2] = Get.Author;
-                Params[3] = Get.Description;
-                Params[4] = Get.Version;
-                Params[5] = Get.SHA256_Sign;
-                SetPlugins.Add(Params);
+                if (NIMPlugin.Plugins.ContainsKey(Get.SHA256_Sign))
+                {
+                    string[] Params = new string[7];
+                    Params[0] = Get.FilePath;
+                    Params[1] = Get.Name;
+                    Params[2] = Get.Author;
+                    Params[3] = Get.Description;
+                    Params[4] = Get.Version;
+                    Params[5] = Get.SHA256_Sign;
+                    Params[6] = NIMPlugin.Plugins[Get.SHA256_Sign].ToString();
+                    SetPlugins.Add(Params);
+                }
             }
 
             return SetPlugins;

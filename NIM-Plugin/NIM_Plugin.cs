@@ -15,10 +15,10 @@ namespace NIM_Plugin
         public static string PluginsPath = @"\CorePlugins\";
 
         private static string CurrentPath = "";
-        public static void Init(string StartupPath)
+        public static void Init(string StartupPath,Dictionary<string, bool> Plugins)
         {
             CurrentPath = StartupPath;
-            NIMPlugin.Plugins = new Dictionary<string, bool>();
+            NIMPlugin.Plugins = Plugins;
         }
       
         public static string GetFullPath(string Path)
