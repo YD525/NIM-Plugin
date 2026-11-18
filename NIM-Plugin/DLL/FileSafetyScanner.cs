@@ -169,6 +169,56 @@ namespace NIM_Plugin.DLL
             "CreateProcess", "CreateProcessW", "CreateProcessA",
             "ShellExecute", "ShellExecuteW", "ShellExecuteA", "ShellExecuteEx",
             "WinExec",
+
+            // Registry access (Microsoft.Win32)
+            "Microsoft.Win32.Registry::get_CurrentUser()",
+            "Microsoft.Win32.Registry::get_LocalMachine()",
+            "Microsoft.Win32.Registry::get_ClassesRoot()",
+            "Microsoft.Win32.Registry::get_Users()",
+            "Microsoft.Win32.Registry::get_CurrentConfig()",
+            "Microsoft.Win32.Registry::GetValue(System.String,System.String)",
+            "Microsoft.Win32.Registry::GetValue(System.String,System.String,System.Object)",
+            "Microsoft.Win32.Registry::SetValue(System.String,System.String,System.Object)",
+            "Microsoft.Win32.Registry::SetValue(System.String,System.String,System.Object,Microsoft.Win32.RegistryValueKind)",
+            "Microsoft.Win32.Registry::DeleteValue(System.String,System.String)",
+            "Microsoft.Win32.Registry::DeleteValue(System.String,System.String,System.Boolean)",
+
+            // Registry key read / query (instance)
+            "Microsoft.Win32.RegistryKey::OpenSubKey(System.String)",
+            "Microsoft.Win32.RegistryKey::OpenSubKey(System.String,System.Boolean)",
+            "Microsoft.Win32.RegistryKey::OpenSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck)",
+            "Microsoft.Win32.RegistryKey::OpenSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck,System.Security.AccessControl.RegistryRights)",
+            "Microsoft.Win32.RegistryKey::GetValue(System.String)",
+            "Microsoft.Win32.RegistryKey::GetValue(System.String,System.Object)",
+            "Microsoft.Win32.RegistryKey::GetValue(System.String,System.Object,Microsoft.Win32.RegistryValueOptions)",
+            "Microsoft.Win32.RegistryKey::GetValueNames()",
+            "Microsoft.Win32.RegistryKey::GetSubKeyNames()",
+            "Microsoft.Win32.RegistryKey::GetValueKind(System.String)",
+
+            // Registry key write / delete (instance)
+            "Microsoft.Win32.RegistryKey::CreateSubKey(System.String)",
+            "Microsoft.Win32.RegistryKey::CreateSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck)",
+            "Microsoft.Win32.RegistryKey::CreateSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck,Microsoft.Win32.RegistryOptions)",
+            "Microsoft.Win32.RegistryKey::CreateSubKey(System.String,System.Boolean)",
+            "Microsoft.Win32.RegistryKey::CreateSubKey(System.String,System.Boolean,System.Boolean)",
+            "Microsoft.Win32.RegistryKey::SetValue(System.String,System.Object)",
+            "Microsoft.Win32.RegistryKey::SetValue(System.String,System.Object,Microsoft.Win32.RegistryValueKind)",
+            "Microsoft.Win32.RegistryKey::DeleteSubKey(System.String)",
+            "Microsoft.Win32.RegistryKey::DeleteSubKey(System.String,System.Boolean)",
+            "Microsoft.Win32.RegistryKey::DeleteSubKeyTree(System.String)",
+            "Microsoft.Win32.RegistryKey::DeleteSubKeyTree(System.String,System.Boolean)",
+            "Microsoft.Win32.RegistryKey::DeleteValue(System.String)",
+            "Microsoft.Win32.RegistryKey::DeleteValue(System.String,System.Boolean)",
+
+            // P/Invoke entry points (native registry APIs)
+            "RegOpenKey", "RegOpenKeyEx", "RegOpenKeyExW", "RegOpenKeyExA",
+            "RegCreateKey", "RegCreateKeyEx", "RegCreateKeyExW", "RegCreateKeyExA",
+            "RegSetValue", "RegSetValueEx", "RegSetValueExW", "RegSetValueExA",
+            "RegQueryValue", "RegQueryValueEx", "RegQueryValueExW", "RegQueryValueExA",
+            "RegDeleteKey", "RegDeleteKeyW", "RegDeleteKeyA",
+            "RegDeleteValue", "RegDeleteValueW", "RegDeleteValueA",
+            "RegEnumKey", "RegEnumKeyEx", "RegEnumKeyExW", "RegEnumKeyExA",
+            "RegEnumValue", "RegEnumValueW", "RegEnumValueA",
         };
 
         // Cached opcode table built from System.Reflection.Emit.OpCodes at first use.
