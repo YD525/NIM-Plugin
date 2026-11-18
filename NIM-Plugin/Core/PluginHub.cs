@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using NIM_Plugin.DLL;
 
 namespace NIM_Plugin.Core
 {
@@ -51,18 +52,32 @@ namespace NIM_Plugin.Core
             HashSet<string> Seen = new HashSet<string>();
             bool ScanOk = true;
 
-            string[] Dlls;
+            string[] DllFiles;
             try
             {
-                Dlls = Directory.GetFiles(PluginDir, "*.dll", SearchOption.TopDirectoryOnly);
+                DllFiles = Directory.GetFiles(PluginDir, "*.dll", SearchOption.TopDirectoryOnly);
             }
             catch (Exception)
             {
                 return;
             }
 
-            foreach (string Dll in Dlls)
+            foreach (string Dll in DllFiles)
             {
+                try 
+                {
+                    //Plugins are not allowed to perform file read/write operations or directory query operations. If you need to persist data, please implement the I_Database interface to store the data you need. I_Database provides three separate database operation methods that cover all scenarios. Please create a new table to store your data.
+                    if (!FileSafetyScanner.Scan(Dll).IsSafe)
+                    {
+                        continue;
+                    }
+                }
+                catch 
+                {
+                    ScanOk = false;
+                    continue;
+                }
+
                 string Sign;
                 try
                 {

@@ -71,6 +71,7 @@
     <Compile Include="Core\SHA256Validator.cs" />
     <Compile Include="API\JsonPayload.cs" />
     <Compile Include="Core\IPlugin.cs" />
+    <Compile Include="DLL\FileSafetyScanner.cs" />
     <Compile Include="NIM_Plugin.cs" />
     <Compile Include="Node\INode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
