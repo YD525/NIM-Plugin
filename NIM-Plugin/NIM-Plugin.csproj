@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADO\IADO.cs" />
+    <Compile Include="Core\PluginApi.cs" />
     <Compile Include="Core\PluginHub.cs" />
     <Compile Include="Core\SHA256Validator.cs" />
     <Compile Include="Json\JsonPayload.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="NIM_Plugin.cs" />
     <Compile Include="Node\INode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translate\ITranslate.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

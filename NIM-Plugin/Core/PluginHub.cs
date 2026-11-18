@@ -254,6 +254,11 @@ namespace NIM_Plugin.Core
             return SetPlugins;
         }
 
+        /// <summary>
+        /// Enables a plugin.
+        /// </summary>
+        /// <param name="Key">The SHA256 hash of the plugin DLL.</param>
+        /// <returns>True if the plugin exists and was enabled; otherwise, false.</returns>
         public bool EnablePlugin(string Key)
         {
             if (NIMPlugin.Plugins.ContainsKey(Key))
@@ -265,6 +270,11 @@ namespace NIM_Plugin.Core
             return false;
         }
 
+        /// <summary>
+        /// Disables a plugin.
+        /// </summary>
+        /// <param name="Key">The SHA256 hash of the plugin DLL.</param>
+        /// <returns>True if the plugin exists and was disabled; otherwise, false.</returns>
         public bool DisablePlugin(string Key)
         {
             if (NIMPlugin.Plugins.ContainsKey(Key))
