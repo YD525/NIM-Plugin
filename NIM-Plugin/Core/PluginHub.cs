@@ -64,20 +64,6 @@ namespace NIM_Plugin.Core
 
             foreach (string Dll in DllFiles)
             {
-                try 
-                {
-                    //Plugins are not allowed to perform file read/write operations or directory query operations. If you need to persist data, please implement the I_Database interface to store the data you need. I_Database provides three separate database operation methods that cover all scenarios. Please create a new table to store your data.
-                    if (!FileSafetyScanner.Scan(Dll).IsSafe)
-                    {
-                        continue;
-                    }
-                }
-                catch 
-                {
-                    ScanOk = false;
-                    continue;
-                }
-
                 string Sign;
                 try
                 {
@@ -88,6 +74,25 @@ namespace NIM_Plugin.Core
                     // Cannot identify this DLL (file locked, etc.), so the scan is incomplete: do not prune.
                     ScanOk = false;
                     continue;
+                }
+
+                bool Verified = Verified_SHA256_List.Contains(Sign);
+
+                if (!Verified)
+                {
+                    try
+                    {
+                        //Plugins are not allowed to perform file read/write operations or directory query operations. If you need to persist data, please implement the I_Database interface to store the data you need. I_Database provides three separate database operation methods that cover all scenarios. Please create a new table to store your data.
+                        if (!FileSafetyScanner.Scan(Dll).IsSafe)
+                        {
+                            continue;
+                        }
+                    }
+                    catch
+                    {
+                        ScanOk = false;
+                        continue;
+                    }
                 }
 
                 // A DLL that exists on disk counts as "seen" even if it fails to load below,
@@ -118,8 +123,6 @@ namespace NIM_Plugin.Core
                             // [Violating plugin] Simply skip any plugins that don't behave as expected.
                             continue;
                         }
-
-                        bool Verified = Verified_SHA256_List.Contains(Sign);
 
                         if (EnabledAttr.Enabled && !Verified)
                         {
