@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace NIM_Plugin.IO
+namespace NIM_Plugin.Data
 {
     public class Mod_Data
     {
