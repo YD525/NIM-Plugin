@@ -17,8 +17,8 @@ namespace NIM_Plugin.IO
         /// </summary>
         string TakenOverFileExtension { get; set; }
 
-        Mod_Content Read(string FilePath);
+        Mod_Content Read(byte[] Data);
 
-        void Save(Mod_Content Content);
+        byte[] Save(Mod_Content Content);
     }
 }
