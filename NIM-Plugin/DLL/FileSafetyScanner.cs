@@ -8,7 +8,7 @@ using System.Reflection.Emit;
 namespace NIM_Plugin.DLL
 {
     /// <summary>
-    /// Pure BCL IL scanner. No third-party dependency.
+    /// Pure BCL IL scanner.
     /// Reads every method body of a managed DLL and reports calls that match
     /// the file I/O, path query and path enumeration blacklist.
     /// </summary>
