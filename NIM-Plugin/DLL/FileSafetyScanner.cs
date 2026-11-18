@@ -149,6 +149,26 @@ namespace NIM_Plugin.DLL
             "FindFirstFile", "FindFirstFileW", "FindFirstFileA",
             "FindNextFile", "FindNextFileW", "FindNextFileA",
             "GetFileAttributes", "GetFileAttributesW", "GetFileAttributesA",
+
+             // Process enumeration / query
+            "System.Diagnostics.Process::GetProcesses()",
+            "System.Diagnostics.Process::GetProcesses(System.String)",
+            "System.Diagnostics.Process::GetProcessesByName(System.String)",
+            "System.Diagnostics.Process::GetProcessesByName(System.String,System.String)",
+            "System.Diagnostics.Process::GetProcessById(System.Int32)",
+            "System.Diagnostics.Process::GetProcessById(System.Int32,System.String)",
+            "System.Diagnostics.Process::GetCurrentProcess()",
+
+            // Process start / run program
+            "System.Diagnostics.Process::Start()",
+            "System.Diagnostics.Process::Start(System.String)",
+            "System.Diagnostics.Process::Start(System.String,System.String)",
+            "System.Diagnostics.Process::Start(System.Diagnostics.ProcessStartInfo)",
+
+            // P/Invoke entry points (native process APIs)
+            "CreateProcess", "CreateProcessW", "CreateProcessA",
+            "ShellExecute", "ShellExecuteW", "ShellExecuteA", "ShellExecuteEx",
+            "WinExec",
         };
 
         // Cached opcode table built from System.Reflection.Emit.OpCodes at first use.
