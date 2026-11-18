@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADO\IADO.cs" />
     <Compile Include="Core\PluginHub.cs" />
     <Compile Include="Core\SHA256Validator.cs" />
     <Compile Include="Json\JsonPayload.cs" />

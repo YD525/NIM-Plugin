@@ -4,8 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NIM_Plugin.Core
 {
@@ -28,8 +26,6 @@ namespace NIM_Plugin.Core
             public string Version { get; internal set; }
 
             public string SHA256_Sign = "";
-
-            public bool Enabled = false;
             public Exception LastError { get; internal set; }
         }
 
@@ -38,6 +34,15 @@ namespace NIM_Plugin.Core
 
         public void Init()
         {
+            ScanPlugins();
+        }
+        public void ScanPlugins()
+        {
+            lock (_Lock)
+            {
+                Plugins.Clear();
+            }
+
             string PluginDir = NIMPlugin.GetFullPath(NIMPlugin.PluginsPath);
 
             // Directory missing: skip everything, and never prune (would wipe the user's switches).
@@ -107,6 +112,8 @@ namespace NIM_Plugin.Core
                             continue;
                         }
 
+                        var Enabled = EnabledAttr.Enabled && Verified;
+
                         PluginEntry Entry = new PluginEntry
                         {
                             Instance = null, // Do not create the instance early, otherwise Enabled is meaningless.
@@ -117,12 +124,11 @@ namespace NIM_Plugin.Core
                             Author = AuthorAttr.Author,
                             Description = DescriptionAttr.Description,
                             Version = VersionAttr.Version.ToString("F1", CultureInfo.InvariantCulture),
-                            Enabled = EnabledAttr.Enabled && Verified
                         };
 
                         if (!NIMPlugin.Plugins.ContainsKey(Sign))
                         {
-                            NIMPlugin.Plugins.Add(Sign, Entry.Enabled);
+                            NIMPlugin.Plugins.Add(Sign, Enabled);
                         }
 
                         lock (_Lock)
@@ -169,7 +175,11 @@ namespace NIM_Plugin.Core
             }
 
             List<PluginEntry> Snapshot;
-            lock (_Lock) { Snapshot = Plugins.ToList(); }
+
+            lock (_Lock) 
+            { 
+                Snapshot = Plugins.ToList(); 
+            }
 
             foreach (PluginEntry Entry in Snapshot)
             {
@@ -218,12 +228,52 @@ namespace NIM_Plugin.Core
             return (Executed, Results);
         }
 
-        public List<PluginEntry> GetPlugins()
+        public List<string[]> GetPlugins()
         {
+            List<string[]> SetPlugins = new List<string[]>();
+
+            List<PluginEntry> Snapshot;
+
             lock (_Lock)
             {
-                return Plugins.ToList();
+                Snapshot = Plugins.ToList();
             }
+
+            foreach (var Get in Snapshot)
+            {
+                string[] Params = new string[6];
+                Params[0] = Get.FilePath;
+                Params[1] = Get.Name;
+                Params[2] = Get.Author;
+                Params[3] = Get.Description;
+                Params[4] = Get.Version;
+                Params[5] = Get.SHA256_Sign;
+                SetPlugins.Add(Params);
+            }
+
+            return SetPlugins;
+        }
+
+        public bool EnablePlugin(string Key)
+        {
+            if (NIMPlugin.Plugins.ContainsKey(Key))
+            {
+                NIMPlugin.Plugins[Key] = true;
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool DisablePlugin(string Key)
+        {
+            if (NIMPlugin.Plugins.ContainsKey(Key))
+            {
+                NIMPlugin.Plugins[Key] = false;
+                return true;
+            }
+
+            return false;
         }
     }
 }
