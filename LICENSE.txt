@@ -24,9 +24,7 @@ Subject to the terms and conditions of this License, the copyright holder grants
 - Reproduce, publish, and distribute Plugins and Derivative Plugins.
 - Make Plugins and Derivative Plugins available to other users.
 
-You are permitted to independently develop and distribute entirely new Plugins without incorporating or modifying any existing Plugin source code.
-
-You may distribute Plugins and Derivative Plugins to other users, whether free of charge or for compensation, provided that all applicable requirements of this License are satisfied.
+You may distribute Plugins and Derivative Plugins to other users, provided that all applicable requirements of this License are satisfied.
 
 The rights granted under this License are conditional upon continued compliance with its terms. Any rights not expressly granted under this License are reserved by the respective copyright holders.
 
