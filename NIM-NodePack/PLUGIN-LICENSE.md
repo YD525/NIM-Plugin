@@ -38,7 +38,7 @@ The Source Code must be provided in a form that allows users to inspect, modify,
 
 The publicly available Source Code must correspond to the exact version of the distributed Plugin.
 
-Any modifications, adaptations, or derivative works distributed to other users must also comply with this License and satisfy the same Source Code availability requirements.
+Any modifications, adaptations, or derivative works distributed to other users must also comply with this License and satisfy the same Source Code availability requirements, unless they are no longer intended or suitable for use as Plugins with the Host Application.
 
 It is strictly prohibited to distribute Plugins or Derivative Plugins in a closed-source or otherwise source-unavailable form.
 
