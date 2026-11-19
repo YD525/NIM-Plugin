@@ -25,6 +25,8 @@ namespace YDTest.ModReader
         private bool _CanRead = false;
         public Mod_Content Read(byte[] Data)
         {
+            _Rows.Clear();
+
             string Json = Encoding.UTF8.GetString(Data);
 
             if (JsonPayload.IsValidDocument(Json))
