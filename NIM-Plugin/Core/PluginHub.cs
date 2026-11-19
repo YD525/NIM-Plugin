@@ -182,7 +182,7 @@ namespace NIM_Plugin.Core
             }
         }
 
-        public (bool Executed, Dictionary<string, object[]> Results) Dispatch(int Type, string MethodName, object[] ParamsRef = null)
+        public (bool Executed, Dictionary<string, object[]> Results) Dispatch(int Type, Engine_Method Method, object[] ParamsRef = null)
         {
             bool Executed = false;
             Dictionary<string, object[]> Results = new Dictionary<string, object[]>();
@@ -222,11 +222,11 @@ namespace NIM_Plugin.Core
 
                     if (Type == 0)
                     {
-                        Entry.Instance.Init(MethodName, ref Args);
+                        Entry.Instance.Init(Method, ref Args);
                     }
                     else if (Type == 1)
                     {
-                        Entry.Instance.HandleEvent(MethodName, ref Args);
+                        Entry.Instance.HandleEvent(Method, ref Args);
                     }
 
                     Executed = true;

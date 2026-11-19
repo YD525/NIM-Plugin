@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace NIM_Plugin.Core
 {
-    public class NIM_Api
+    public class PluginApi
     {
         /// <summary>
         /// Displays a specified WPF window on an independent UI thread.

@@ -63,9 +63,8 @@ namespace NIM_Plugin.Core
 
     public interface I_Plugin
     {
+        void Init(Engine_Method Method, ref object[] ParamsRef);
 
-        void Init(string MethodName, ref object[] ParamsRef);
-
-        void HandleEvent(string MethodName, ref object[] ParamsRef);
+        void HandleEvent(Engine_Method Method, ref object[] ParamsRef);
     }
 }

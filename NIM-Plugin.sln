@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NIM-Plugin", "NIM-Plugin\NI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NIM-NodePack", "NIM-NodePack\NIM-NodePack.csproj", "{10C9ED1B-C397-4EC9-9AAF-9D2417156A70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YDTest", "YDTest\YDTest.csproj", "{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{10C9ED1B-C397-4EC9-9AAF-9D2417156A70}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10C9ED1B-C397-4EC9-9AAF-9D2417156A70}.Release|x64.ActiveCfg = Release|x64
 		{10C9ED1B-C397-4EC9-9AAF-9D2417156A70}.Release|x64.Build.0 = Release|x64
+		{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC4829E4-869A-40F4-89B6-F9CBCEE4CC53}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NIM_NodePack.Nodes;
+using NIM_Plugin;
 using NIM_Plugin.Core;
 
 namespace NIM_NodePack
@@ -17,9 +18,9 @@ namespace NIM_NodePack
         /// </summary>
         /// <param name="MethodName">Name of the feature currently being loaded.</param>
         /// <param name="ParamsRef">Params is a pointer,Used to pass or return data.</param>
-        public void Init(string MethodName, ref object[] ParamsRef)
+        public void Init(Engine_Method Method, ref object[] ParamsRef)
         {
-            if (MethodName == "LoadNodes")
+            if (Method == Engine_Method.LoadNodes)
             {
                 ParamsRef = new object[3];
 
@@ -52,7 +53,7 @@ namespace NIM_NodePack
         /// </summary>
         /// <param name="MethodName">Name of the event method raised by the engine.</param>
         /// <param name="ParamsRef">Params is a pointer,Used to pass or return data.</param>
-        public void HandleEvent(string MethodName,ref object[] ParamsRef)
+        public void HandleEvent(Engine_Method Method, ref object[] ParamsRef)
         { 
             
         }
