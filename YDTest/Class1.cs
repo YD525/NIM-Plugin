@@ -7,6 +7,13 @@ using YDTest.ModReader;
 
 namespace YDTest
 {
+    /// <summary>
+    /// Plugin contract.
+    /// <para>
+    /// Every implementing class <strong>must</strong> be decorated with all five attributes below,
+    /// otherwise <c>PluginHub</c> will not load it:
+    /// </para>
+    /// <code>
     [PluginName("YDTest")] //Enter your plugin name here.
     [PluginAuthor("YD525")] //Remember to use a different author name—definitely don’t use the one I’ve written here.
     [PluginDescription("Just to tell users how to build plugins.")] //Write your description here
