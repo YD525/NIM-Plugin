@@ -74,7 +74,7 @@ The Host Application and its developers make no representations or warranties re
 
 Third-party Plugins and Derivative Plugins are independently developed, distributed, and maintained by their respective authors. They are separate from the Host Application and are not developed, maintained, or controlled by the Host Application or its developers.
 
-The Host Application and its developers are not responsible for any issues, damages, losses, or consequences arising from the development, distribution, installation, or use of third-party Plugins, including errors, defects, vulnerabilities, malicious behavior, data loss, system damage, security breaches, or interactions with the Host Application or other software.
+The Host Application and its developers are not responsible for any issues, damages, losses, or consequences arising from the development, distribution, installation, or use of third-party Plugins.
 
 Any issues arising from third-party Plugins should be addressed to their respective authors.
 
