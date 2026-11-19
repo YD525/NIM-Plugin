@@ -19,6 +19,54 @@ namespace NIM_Plugin.DLL
         // so they must NOT be renamed.
         private static readonly HashSet<string> Blacklist = new HashSet<string>(StringComparer.Ordinal)
         {
+            // Additional file open / write / append overloads
+            "System.IO.File::Open(System.String,System.IO.FileMode)",
+            "System.IO.File::Open(System.String,System.IO.FileMode,System.IO.FileAccess)",
+            "System.IO.File::Open(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)",
+            "System.IO.File::OpenText(System.String)",
+            "System.IO.File::AppendAllLines(System.String,System.Collections.Generic.IEnumerable`1[System.String])",
+            "System.IO.File::AppendAllLines(System.String,System.Collections.Generic.IEnumerable`1[System.String],System.Text.Encoding)",
+            "System.IO.File::WriteAllLines(System.String,System.Collections.Generic.IEnumerable`1[System.String])",
+            "System.IO.File::WriteAllLines(System.String,System.Collections.Generic.IEnumerable`1[System.String],System.Text.Encoding)",
+
+            // Additional FileInfo / DirectoryInfo write and creation methods
+            "System.IO.FileInfo::Open(System.IO.FileMode)",
+            "System.IO.FileInfo::Open(System.IO.FileMode,System.IO.FileAccess)",
+            "System.IO.FileInfo::Open(System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)",
+            "System.IO.FileInfo::OpenText()",
+            "System.IO.FileInfo::Create()",
+            "System.IO.FileInfo::CreateText()",
+            "System.IO.FileInfo::AppendText()",
+            "System.IO.DirectoryInfo::Create()",
+            "System.IO.DirectoryInfo::CreateSubdirectory(System.String)",
+
+            // BinaryWriter constructors
+            "System.IO.BinaryWriter::.ctor(System.IO.Stream)",
+            "System.IO.BinaryWriter::.ctor(System.IO.Stream,System.Text.Encoding)",
+            "System.IO.BinaryWriter::.ctor(System.IO.Stream,System.Text.Encoding,System.Boolean)",
+
+            // Archive extraction / creation that writes to disk
+            "System.IO.Compression.ZipFile::ExtractToDirectory(System.String,System.String)",
+            "System.IO.Compression.ZipFile::CreateFromDirectory(System.String,System.String)",
+            "System.IO.Compression.ZipFile::CreateFromDirectory(System.String,System.String,System.IO.Compression.CompressionLevel,System.Boolean)",
+
+            // Dynamic assembly loading and instantiation bypasses
+            "System.Reflection.Assembly::LoadFrom(System.String)",
+            "System.Reflection.Assembly::LoadFile(System.String)",
+            "System.Reflection.Assembly::UnsafeLoadFrom(System.String)",
+            "System.Reflection.Assembly::Load(System.Byte[])",
+            "System.Activator::CreateInstance(System.Type)",
+
+            // Native P/Invoke entry points for file / INI / shell write operations
+            "WritePrivateProfileString", "WritePrivateProfileStringW", "WritePrivateProfileStringA",
+            "WritePrivateProfileSection", "WritePrivateProfileSectionW", "WritePrivateProfileSectionA",
+            "NtWriteFile", "ZwWriteFile",
+            "NtCreateFile", "ZwCreateFile",
+            "CopyFile2",
+            "MoveFileWithProgress", "MoveFileWithProgressW", "MoveFileWithProgressA",
+            "ReplaceFile", "ReplaceFileW", "ReplaceFileA",
+            "SHFileOperation", "SHFileOperationW", "SHFileOperationA",
+
             // File write / delete / move / copy
             "System.IO.File::WriteAllText(System.String,System.String)",
             "System.IO.File::WriteAllText(System.String,System.String,System.Text.Encoding)",
@@ -67,9 +115,6 @@ namespace NIM_Plugin.DLL
             "System.IO.Path::GetPathRoot(System.String)",
             "System.IO.Path::GetTempPath()",
             "System.IO.Path::GetTempFileName()",
-            "System.IO.Path::Combine(System.String,System.String)",
-            "System.IO.Path::Combine(System.String,System.String,System.String)",
-            "System.IO.Path::Combine(System.String[])",
             "System.IO.Path::ChangeExtension(System.String,System.String)",
             "System.IO.Path::HasExtension(System.String)",
             "System.IO.Path::IsPathRooted(System.String)",
