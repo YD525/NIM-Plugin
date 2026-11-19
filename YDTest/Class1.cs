@@ -24,7 +24,7 @@ namespace YDTest
 
         //I_Plugin is the entry point of the plug-in.
 
-        //I_AI_Node,I_Local_AI_Node,I_Node If you wish to add a new platform, please implement one of the three interfaces, depending on the type of translation platform: use `I_Node` for traditional translation platforms, `I_Local_AI_Node` for local translation platforms, and `I_AI_Node` for online AI-based translation platforms. Note that you should pass the `Type` to the engine, rather than an instance.
+        //I_AI_Node,I_Local_AI_Node,I_Node If you wish to add a new platform, please implement one of the three interfaces, depending on the type of translation platform: use `I_Node` for traditional translation platforms, `I_Local_AI_Node` for local AI translation platforms, and `I_AI_Node` for online AI translation platforms. Note that you should pass the `Type` to the engine, rather than an instance.
 
         //I_Database If you wish to implement read/write operations for the NIM database, you must implement the necessary logic and pass the instance to the engine.
 
