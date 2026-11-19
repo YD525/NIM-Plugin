@@ -54,8 +54,8 @@ namespace NIM_NodePack
         /// <param name="MethodName">Name of the event method raised by the engine.</param>
         /// <param name="ParamsRef">Params is a pointer,Used to pass or return data.</param>
         public void HandleEvent(Engine_Method Method, ref object[] ParamsRef)
-        { 
-            
+        {
+            //This method hasn't been implemented yet, so I'll leave it as a placeholder for now. I’m still weighing the scheduling order for certain parts of the core engine—it’s a rather complex matter.
         }
     }
 }
