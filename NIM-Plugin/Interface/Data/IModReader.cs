@@ -58,8 +58,9 @@ namespace NIM_Plugin.Data
         /// Called before <see cref="CanRead"/> so the plugin can determine whether it is capable of handling the data.
         /// </summary>
         /// <param name="Data">Raw byte array of the target file.</param>
+        /// <param name="FileUniqueKey"></param>
         /// <returns>Parsed mod content.</returns>
-        Mod_Content Read(byte[] Data);
+        Mod_Content Read(int FileUniqueKey,byte[] Data);
 
         /// <summary>
         /// Called after <see cref="Read"/> to report whether the plugin can parse the data.

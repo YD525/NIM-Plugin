@@ -25,9 +25,12 @@ namespace YDTest.ModReader
         private List<TestJson> _Rows = new List<TestJson>();
 
         private bool _CanRead = false;
-        public Mod_Content Read(byte[] Data)
+
+        public int FileUniqueKey = 0;
+        public Mod_Content Read(int FileUniqueKey, byte[] Data)
         {
             _Rows.Clear();
+            this.FileUniqueKey = FileUniqueKey;
 
             string Json = Encoding.UTF8.GetString(Data);
 
@@ -45,8 +48,8 @@ namespace YDTest.ModReader
 
             for (int i = 0; i < _Rows.Count; i++)
             {
-                GenContent.Add(i.ToString() + "A", _Rows[i].ValueA, 0);
-                GenContent.Add(i.ToString() + "B", _Rows[i].ValueB, 1);
+                GenContent.Add(FileUniqueKey + "_" + i.ToString() + "A", _Rows[i].ValueA, 0);
+                GenContent.Add(FileUniqueKey + "_" + i.ToString() + "B", _Rows[i].ValueB, 1);
             }
 
             return GenContent;
@@ -61,17 +64,22 @@ namespace YDTest.ModReader
             { 
                 var Row = Content.Rows[i];
 
-                if (Row.Key.EndsWith("A") || Row.Key.EndsWith("B"))
-                {
-                    int GetRealOffset = int.Parse(Row.Key.Substring(0, Row.Key.Length - 1));
+                if (Row.Key.Contains("_"))
+                { 
+                    string GetKey = Row.Key = Row.Key.Substring(Row.Key.IndexOf("_") + "_".Length);
 
-                    if (Row.Key.EndsWith("A"))
+                    if (GetKey.EndsWith("A") || GetKey.EndsWith("B"))
                     {
-                        _Rows[GetRealOffset].ValueA = Row.Data;
-                    }
-                    if (Row.Key.EndsWith("B"))
-                    {
-                        _Rows[GetRealOffset].ValueB = Row.Data;
+                        int GetRealOffset = int.Parse(GetKey.Substring(0, GetKey.Length - 1));
+
+                        if (GetKey.EndsWith("A"))
+                        {
+                            _Rows[GetRealOffset].ValueA = Row.Data;
+                        }
+                        if (GetKey.EndsWith("B"))
+                        {
+                            _Rows[GetRealOffset].ValueB = Row.Data;
+                        }
                     }
                 }
             }
