@@ -60,7 +60,7 @@ The Host Application and its developers do not necessarily develop, endorse, ver
 
 The inclusion, availability, or compatibility of a Plugin with the Host Application does not imply any affiliation, partnership, or responsibility on the part of the Host Application's developers.
 
-Plugin developers are solely responsible for their own Plugins, including their implementation, functionality, security, maintenance, distribution, and compliance with applicable laws.
+Plugin developers are solely responsible for their own Plugins, including their implementation, functionality, security, maintenance, and distribution.
 
 ## 6. Disclaimer of Warranty
 
