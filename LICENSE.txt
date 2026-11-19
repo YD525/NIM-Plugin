@@ -18,14 +18,15 @@ Subject to the terms and conditions of this License, the copyright holder grants
 
 - Develop and create new Plugins for the Host Application.
 - Use and execute Plugins.
+- Inspect and access the Source Code of Plugins.
 - Modify, adapt, and extend existing Plugins.
-- Create Derivative Plugins.
+- Create and build Derivative Plugins.
 - Reproduce, publish, and distribute Plugins and Derivative Plugins.
 - Make Plugins and Derivative Plugins available to other users.
 
 You are permitted to independently develop and distribute entirely new Plugins without incorporating or modifying any existing Plugin source code.
 
-You may distribute your Plugins and Derivative Plugins to other users, provided that all applicable requirements of this License are satisfied.
+You may distribute Plugins and Derivative Plugins to other users, whether free of charge or for compensation, provided that all applicable requirements of this License are satisfied.
 
 The rights granted under this License are conditional upon continued compliance with its terms. Any rights not expressly granted under this License are reserved by the respective copyright holders.
 
@@ -33,11 +34,11 @@ The rights granted under this License are conditional upon continued compliance 
 
 All Plugins and Derivative Plugins developed for or distributed for use with the Host Application MUST make their complete corresponding Source Code publicly available.
 
-The Source Code must be provided in a form that allows users to inspect, modify, build, and redistribute the Plugin.
+The Source Code must be provided in a form that allows users to inspect, modify, and build the Plugin.
 
 The publicly available Source Code must correspond to the exact version of the distributed Plugin.
 
-Any modifications, adaptations, or derivative works must also be distributed under this License, with the same source code availability requirements.
+Any modifications, adaptations, or derivative works distributed to other users must also comply with this License and satisfy the same Source Code availability requirements.
 
 It is strictly prohibited to distribute Plugins or Derivative Plugins in a closed-source or otherwise source-unavailable form.
 
@@ -49,7 +50,7 @@ Any Plugin or Derivative Plugin incorporating, modifying, or deriving from softw
 
 No additional restrictions may be imposed that conflict with the requirements of this License.
 
-Redistribution of Plugins and Derivative Plugins is permitted only when the requirements of this License are preserved.
+Distribution of Plugins and Derivative Plugins is permitted only when all applicable requirements of this License are satisfied.
 
 ## 5. Third-Party Plugin Independence
 
@@ -71,7 +72,9 @@ The Host Application and its developers make no representations or warranties re
 
 ## 7. Limitation of Liability
 
-Third-party Plugins and Derivative Plugins are the sole responsibility of their respective authors. The authors, distributors, and maintainers of third-party Plugins are solely liable for any damages, losses, claims, or other liabilities arising from or related to those Plugins, including their development, distribution, installation, use, errors, defects, vulnerabilities, malicious behavior, data loss, system damage, security breaches, or interactions with the Host Application or other software.
+Third-party Plugins and Derivative Plugins are the sole responsibility of their respective authors.
+
+The authors, distributors, and maintainers of third-party Plugins are solely liable for any damages, losses, claims, or other liabilities arising from or related to those Plugins, including their development, distribution, installation, use, errors, defects, vulnerabilities, malicious behavior, data loss, system damage, security breaches, or interactions with the Host Application or other software.
 
 The Host Application providing the ability to load or invoke third-party Plugins does not make the Host Application or its developers responsible for those third-party Plugins.
 
