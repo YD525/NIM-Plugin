@@ -72,9 +72,9 @@ The Host Application and its developers make no representations or warranties re
 
 ## 7. Limitation of Liability
 
-Third-party Plugins and Derivative Plugins are independently developed, distributed, and maintained by their respective authors. They are not part of the Host Application and are not under the control or responsibility of the Host Application or its developers.
+Third-party Plugins and Derivative Plugins are independently developed, distributed, and maintained by their respective authors. They are separate from the Host Application and are not developed, maintained, or controlled by the Host Application or its developers.
 
-The respective authors, distributors, and maintainers of third-party Plugins are solely responsible for any claims, damages, losses, or liabilities arising from or related to those Plugins, including their development, distribution, installation, use, errors, defects, vulnerabilities, malicious behavior, data loss, system damage, security breaches, or interactions with the Host Application or other software.
+The Host Application does not manage or supervise the development, distribution, or operation of third-party Plugins. Any issues arising from the use of such Plugins should be addressed to their respective authors.
 
 ## 8. Termination
 
