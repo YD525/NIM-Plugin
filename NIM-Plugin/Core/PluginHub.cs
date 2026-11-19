@@ -246,6 +246,16 @@ namespace NIM_Plugin.Core
             return (Executed, Results);
         }
 
+        public bool IsTrustedPlugin(string Key)
+        {
+            if (Verified_SHA256_List.Contains(Key))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public List<string[]> GetPlugins()
         {
             List<string[]> SetPlugins = new List<string[]>();
