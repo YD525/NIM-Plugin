@@ -14,9 +14,7 @@ namespace NIM_Plugin.DLL
     /// </summary>
     public static class FileSafetyScanner
     {
-        // Blacklist: format "Namespace.Type::Method(Param1,Param2)".
-        // These strings mirror the exact signatures produced by reflection,
-        // so they must NOT be renamed.
+        //A blacklist; if any method within a plugin matches an entry in this list, the plugin will not be allowed to load.
         private static readonly HashSet<string> Blacklist = new HashSet<string>(StringComparer.Ordinal)
         {
             // Additional file open / write / append overloads
