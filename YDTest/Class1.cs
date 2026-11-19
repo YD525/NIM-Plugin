@@ -1,4 +1,6 @@
-﻿using NIM_Plugin;
+﻿using System.Collections.Generic;
+using System;
+using NIM_Plugin;
 using NIM_Plugin.Core;
 using YDTest.ADO;
 using YDTest.ModReader;
@@ -12,6 +14,16 @@ namespace YDTest
     [PluginEnabled(false)]// Official plugins: set to true to run the plugin automatically after the main program starts. Third-party plugins: keep false.
     public class Class1:I_Plugin
     {
+        //Interfaces currently supported for construction.
+
+        //I_Plugin is the entry point of the plug-in.
+
+        //I_AI_Node,I_Local_AI_Node,I_Node If you wish to add a new platform, please implement one of the three interfaces, depending on the type of translation platform: use `I_Node` for traditional translation platforms, `I_Local_AI_Node` for local translation platforms, and `I_AI_Node` for online AI-based translation platforms. Note that you should pass the `Type` to the engine, rather than an instance.
+        
+        //I_Database If you wish to implement read/write operations for the NIM database, you must implement the necessary logic and pass the instance to the engine.
+
+        //I_ModReader If you want NIM to support reading and writing a specific file type, implement this interface and pass the instance to the engine. Implementing a constructor and IDisposable is optional, so customize it as you see fit.
+              
         /// <summary>
         /// Called by the engine when the plugin is loaded.
         /// </summary>
@@ -20,16 +32,43 @@ namespace YDTest
         public void Init(Engine_Method Method, ref object[] ParamsRef)
         {
             //This approach is fully implemented via the following parameters:
+
             //LoadNodes
-            //Allows you to customize the translation platforms you wish to use.
+            //This event indicates that the engine is loading nodes, allowing you to pass in your new nodes.
+
             //InitDatabase
-            //Enables you to control the data within the engine's core database.
+            //This event indicates that the engine has successfully connected to the database, allowing you to access the engine's database read/write methods. You can then make use of the delegate you passed in when `OnBound()` is triggered.
+
             //LoadReaders
-            //Allows you to customize file parsers—for instance, to handle file formats that are not natively supported by NIM.
+            //The engine is currently building the mod parser. You may submit your own parser; whether or not it is selected depends on the loading order of the respective plugins.
+
             switch (Method)
             {
                 case Engine_Method.LoadNodes:
-                    { 
+                    {
+                        //ParamsRef = new object[3];
+
+                        //ParamsRef[0] = new List<Type>()
+                        //{
+                        //    //Need to implement the I_Local_AI_Node interface
+                        //    typeof(LocalAI)
+                        //};
+
+                        //ParamsRef[1] = new List<Type>()
+                        //{
+                        //    //Need to implement the I_AI_Node interface
+                        //    typeof(ClaudeApi),
+                        //    typeof(ChatGptApi),
+                        //    typeof(GeminiApi),
+                        //    typeof(NanoGptApi),
+                        //    typeof(DeepSeekApi)
+                        //};
+
+                        //ParamsRef[2] = new List<Type>()
+                        //{
+                        //    //Need to implement I_Node interface
+                        //    typeof(DeepLApi)
+                        //};
                     }
                 break;
                 case Engine_Method.InitDatabase:
