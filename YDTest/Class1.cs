@@ -14,6 +14,12 @@ namespace YDTest
     [PluginEnabled(false)]// Official plugins: set to true to run the plugin automatically after the main program starts. Third-party plugins: keep false.
     public class Class1:I_Plugin
     {
+
+        public Class1()
+        {
+            //A plugin instance is created.
+        }
+
         //Interfaces currently supported for construction.
 
         //I_Plugin is the entry point of the plug-in.
