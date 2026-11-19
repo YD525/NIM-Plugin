@@ -3,7 +3,6 @@ using System.Text;
 using Newtonsoft.Json;
 using NIM_Plugin.Data;
 using NIM_Plugin.Json;
-using YDTest.ADO;
 
 namespace YDTest.ModReader
 {
@@ -30,6 +29,7 @@ namespace YDTest.ModReader
         public Mod_Content Read(int FileUniqueKey, byte[] Data)
         {
             _Rows.Clear();
+            _CanRead = false;
             this.FileUniqueKey = FileUniqueKey;
 
             string Json = Encoding.UTF8.GetString(Data);
