@@ -32,6 +32,8 @@ The rights granted under this License are conditional upon continued compliance 
 
 All Plugins and Derivative Plugins developed for or distributed for use with the Host Application MUST make their complete corresponding Source Code publicly available.
 
+The Source Code may be hosted anywhere, provided that it is publicly visible and accessible to users.
+
 The Source Code must be provided in a form that allows users to inspect, modify, and build the Plugin.
 
 The publicly available Source Code must correspond to the exact version of the distributed Plugin.
