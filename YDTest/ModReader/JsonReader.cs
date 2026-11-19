@@ -3,6 +3,7 @@ using System.Text;
 using Newtonsoft.Json;
 using NIM_Plugin.Data;
 using NIM_Plugin.Json;
+using YDTest.ADO;
 
 namespace YDTest.ModReader
 {
@@ -18,6 +19,7 @@ namespace YDTest.ModReader
     //Please read the methods I’ve written carefully; they are very important.
     public class JsonReader : I_ModReader
     {
+        public static JsonReader Instance = new JsonReader();
         public string TakenOverFileExtension { get; set; } = ".json";
 
         private List<TestJson> _Rows = new List<TestJson>();

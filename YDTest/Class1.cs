@@ -1,6 +1,7 @@
 ﻿using NIM_Plugin;
 using NIM_Plugin.Core;
 using YDTest.ADO;
+using YDTest.ModReader;
 
 namespace YDTest
 {
@@ -28,6 +29,12 @@ namespace YDTest
                     {
                         ParamsRef = new object[1];
                         ParamsRef[0] = SQLiteHelper.Instance;
+                    }
+                break;
+                case Engine_Method.LoadReaders:
+                    {
+                        ParamsRef = new object[1];
+                        ParamsRef[0] = JsonReader.Instance;
                     }
                 break;
             }
