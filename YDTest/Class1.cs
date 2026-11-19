@@ -43,6 +43,9 @@ namespace YDTest
         //As you can see in the implementation in JsonReader.cs, the interface requires you to take and return a byte[], so you can process the file contents entirely in memory. This may increase memory usage, but I think it is better than having plugins scatter files or logs all over the disk. File writing is scheduled centrally by the core engine, so you don’t need to handle it yourself.
         //Additionally, please keep `[PluginEnabled(false)]` set to `false`; do not change it to `true`.
 
+        //For details on which specific methods are intercepted, please refer to: https://github.com/YD525/NIM-Plugin/blob/main/NIM-Plugin/DLL/FileSafetyScanner.cs
+        //This is done solely for the sake of better consistency and security.
+
         //I’ve already told you~ ↑↑↑
 
         //In addition, everyone is welcome to develop the plug-in ,YD525 will be very happy.
