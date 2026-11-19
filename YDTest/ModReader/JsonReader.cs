@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using NIM_Plugin.Data;
 using NIM_Plugin.Json;
 
-namespace YDTest.ADO
+namespace YDTest.ModReader
 {
     public class TestJson
     {
