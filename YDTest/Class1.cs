@@ -34,6 +34,11 @@ namespace YDTest
 
         //Please do not try to read or write the disk, enumerate directories, enumerate processes, or read the registry. The engine intercepts these calls, and your plugin will fail to load. If you need to persist data, we recommend saving your configuration to the database through SQLiteHelper. Always create a new table of your own, otherwise the engine may replace your table.
         //As you can see in the implementation in JsonReader.cs, the interface requires you to take and return a byte[], so you can process the file contents entirely in memory. This may increase memory usage, but I think it is better than having plugins scatter files or logs all over the disk. File writing is scheduled centrally by the core engine, so you don’t need to handle it yourself.
+        //Additionally, please keep `[PluginEnabled(false)]` set to `false`; do not change it to `true`.
+
+        //I’ve already told you~ ↑↑↑
+
+        //In addition, everyone is welcome to develop the plug-in ,YD525 will be very happy.
 
         /// <summary>
         /// This method represents the initialization of events for any engine module; it may be called multiple times, as different modules can trigger the initialization process.
