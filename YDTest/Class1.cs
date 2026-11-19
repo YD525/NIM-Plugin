@@ -19,15 +19,15 @@ namespace YDTest
         //I_Plugin is the entry point of the plug-in.
 
         //I_AI_Node,I_Local_AI_Node,I_Node If you wish to add a new platform, please implement one of the three interfaces, depending on the type of translation platform: use `I_Node` for traditional translation platforms, `I_Local_AI_Node` for local translation platforms, and `I_AI_Node` for online AI-based translation platforms. Note that you should pass the `Type` to the engine, rather than an instance.
-        
+
         //I_Database If you wish to implement read/write operations for the NIM database, you must implement the necessary logic and pass the instance to the engine.
 
         //I_ModReader If you want NIM to support reading and writing a specific file type, implement this interface and pass the instance to the engine. Implementing a constructor and IDisposable is optional, so customize it as you see fit.
-              
+
         /// <summary>
-        /// Called by the engine when the plugin is loaded.
+        /// This method represents the initialization of events for any engine module; it may be called multiple times, as different modules can trigger the initialization process.
         /// </summary>
-        /// <param name="MethodName">Name of the feature currently being loaded.</param>
+        /// <param name="Method">The method type after current initialization.</param>
         /// <param name="ParamsRef">Params is a pointer,Used to pass or return data.</param>
         public void Init(Engine_Method Method, ref object[] ParamsRef)
         {

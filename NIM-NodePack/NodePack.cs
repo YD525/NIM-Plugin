@@ -14,9 +14,9 @@ namespace NIM_NodePack
     public class NodePack: I_Plugin
     {
         /// <summary>
-        /// Called by the engine when the plugin is loaded.
+        /// This method represents the initialization of events for any engine module; it may be called multiple times, as different modules can trigger the initialization process.
         /// </summary>
-        /// <param name="MethodName">Name of the feature currently being loaded.</param>
+        /// <param name="Method">The method type after current initialization.</param>
         /// <param name="ParamsRef">Params is a pointer,Used to pass or return data.</param>
         public void Init(Engine_Method Method, ref object[] ParamsRef)
         {
