@@ -54,8 +54,8 @@ namespace NIM_Plugin.Data
         string TakenOverFileExtension { get; set; }
 
         /// <summary>
-        /// Directory structure of the mod files to take over, e.g. subdirectory names under a directory (such as "xxx", "yyy").
-        /// Describes the directory levels/names under the target directory that need to be taken over for the mod.
+        /// Directory structure of the mod files to take over, e.g. subdirectory names under the root directory (such as "xxx", "yyy").
+        /// Describes the subdirectory names under the root directory that need to be taken over by this plugin.
         /// Leave empty to use the default mod structure.
         /// </summary>
         List<string> TakenOverDirectoryNames { get; set; }
