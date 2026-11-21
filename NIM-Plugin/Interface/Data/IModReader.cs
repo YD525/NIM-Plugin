@@ -54,6 +54,13 @@ namespace NIM_Plugin.Data
         string TakenOverFileExtension { get; set; }
 
         /// <summary>
+        /// Directory structure of the mod files to take over, e.g. subdirectory names under a directory (such as "xxx", "yyy").
+        /// Describes the directory levels/names under the target directory that need to be taken over for the mod.
+        /// Leave empty to use the default mod structure.
+        /// </summary>
+        List<string> TakenOverDirectoryNames { get; set; }
+
+        /// <summary>
         /// Receives the raw file bytes and performs pure in-memory binary parsing without file I/O.
         /// Called before <see cref="CanRead"/> so the plugin can determine whether it is capable of handling the data.
         /// </summary>

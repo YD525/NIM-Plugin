@@ -20,6 +20,7 @@ namespace YDTest.ModReader
     {
         public static JsonReader Instance = new JsonReader();
         public string TakenOverFileExtension { get; set; } = ".json";
+        public List<string> TakenOverDirectoryNames { get; set; } = new List<string>() { "DB" };
 
         private List<TestJson> _Rows = new List<TestJson>();
 

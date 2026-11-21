@@ -13,7 +13,7 @@ namespace NIM_Plugin.Core
         /// <summary>
         /// The whitelist only records the signatures of official mods.
         /// </summary>
-        public static readonly IReadOnlyList<string> Verified_SHA256_List = new List<string>() { "d8df0d3dea2d6e39aaa55881b5b32a9d4b6b05e547acca9a7e56360072a98538" }.AsReadOnly();
+        public static readonly IReadOnlyList<string> Verified_SHA256_List = new List<string>() { "e3b0a838c289d84583ab2e7eb8abdde6510531ee591f12006e691fd45543c4ce" }.AsReadOnly();
 
         public static PluginHub Instance = new PluginHub();
         public sealed class PluginEntry
