@@ -85,6 +85,7 @@ namespace NIM_Plugin.Data
     {
         /// <summary>
         /// Gets or sets the file extensions that this plugin is responsible for.
+        /// Multiple extensions can be separated by commas, e.g. ".json,.xml,.txt".
         /// </summary>
         string TakenOverFileExtension { get; set; }
 
