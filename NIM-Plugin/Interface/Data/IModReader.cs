@@ -9,10 +9,10 @@ namespace NIM_Plugin.Data
         public string Path { get; }
 
         private readonly Func<byte[]> _Read;
-        private readonly Func<string, byte[], bool> _Save;
+        private readonly Func<byte[], bool> _Save;
         private readonly Func<int> _GetFileUniqueKey;
 
-        public Mod_File(string Path, Func<byte[]> Read, Func<string, byte[], bool> Save, Func<int> GetFileUniqueKey)
+        public Mod_File(string Path, Func<byte[]> Read, Func<byte[], bool> Save, Func<int> GetFileUniqueKey)
         {
             this.Path = Path;
 
@@ -33,7 +33,7 @@ namespace NIM_Plugin.Data
 
         public bool Save(byte[] Data)
         {
-            return _Save(Path, Data);
+            return _Save(Data);
         }
     }
 
