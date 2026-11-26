@@ -73,8 +73,15 @@ namespace YDTest.ModReader
 
                     for (int ir = 0; ir < _Files[FileUniqueKey].Data.Count; ir++)
                     {
-                        GenContent.Add(FileUniqueKey + "_" + ir.ToString() + "_" + "A", _Files[FileUniqueKey].Data[ir].ValueA, 0);
-                        GenContent.Add(FileUniqueKey + "_" + ir.ToString() + "_" + "B", _Files[FileUniqueKey].Data[ir].ValueB, 1);
+                        var Item = _Files[FileUniqueKey].Data[ir];
+
+                        if (Item != null)
+                        {
+                            if (Item.ValueA != null)
+                                GenContent.Add(FileUniqueKey + "_" + ir.ToString() + "_" + "A", Item.ValueA, 0);
+                            if (Item.ValueB != null)
+                                GenContent.Add(FileUniqueKey + "_" + ir.ToString() + "_" + "B", Item.ValueB, 1);
+                        }
                     }
                 }
             }
