@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Text;
 using Newtonsoft.Json;
 using NIM_Plugin.Data;
