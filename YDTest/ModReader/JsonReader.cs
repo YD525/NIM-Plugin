@@ -14,6 +14,17 @@ namespace YDTest.ModReader
         public string ValueB = "";
         public bool XX = false;
     }
+    public class FileDataBinding
+    {
+        public List<TestJson> Data = null;
+        public Mod_File Reader = null;
+
+        public FileDataBinding(List<TestJson> Data, Mod_File Reader)
+        {
+            this.Data = Data;
+            this.Reader = Reader;
+        }
+    }
 
     //Please read the methods I’ve written carefully; they are very important.
     public class JsonReader : I_ModReader
@@ -21,36 +32,50 @@ namespace YDTest.ModReader
         public static JsonReader Instance = new JsonReader();
         public string TakenOverFileExtension { get; set; } = ".json";
         public List<string> TakenOverDirectoryNames { get; set; } = new List<string>() { "DB" };
-
-        private List<TestJson> _Rows = new List<TestJson>();
+        public bool CanTakeOverEntireDirectory { get; set; } = true;
 
         private bool _CanRead = false;
 
-        public int FileUniqueKey = 0;
-        public Mod_Content Read(int FileUniqueKey, byte[] Data)
+        private Dictionary<int, FileDataBinding> _Files = new Dictionary<int, FileDataBinding>();
+        public Mod_Content Read(List<Mod_File> ModFiles)
         {
-            _Rows.Clear();
             _CanRead = false;
-            this.FileUniqueKey = FileUniqueKey;
 
-            string Json = Encoding.UTF8.GetString(Data);
-
-            if (JsonPayload.IsValidDocument(Json))
-            {
-                try
-                {
-                    _Rows = JsonConvert.DeserializeObject<List<TestJson>>(Json);
-                    _CanRead = true;
-                }
-                catch { }
-            }
+            _Files.Clear();
 
             Mod_Content GenContent = new Mod_Content();
 
-            for (int i = 0; i < _Rows.Count; i++)
+            for (int i = 0; i < ModFiles.Count; i++)
             {
-                GenContent.Add(FileUniqueKey + "_" + i.ToString() + "A", _Rows[i].ValueA, 0);
-                GenContent.Add(FileUniqueKey + "_" + i.ToString() + "B", _Rows[i].ValueB, 1);
+                var Reader = ModFiles[i];
+
+                var FileUniqueKey = Reader.GetFileUniqueKey();
+
+                string Json = Encoding.UTF8.GetString(Reader.Read());
+
+                if (!_Files.ContainsKey(FileUniqueKey))
+                {
+                    _Files.Add(FileUniqueKey,new FileDataBinding(new List<TestJson>(),Reader));
+                }
+
+                if (JsonPayload.IsValidDocument(Json))
+                {
+                    try
+                    {
+                        _Files[FileUniqueKey].Data = JsonConvert.DeserializeObject<List<TestJson>>(Json);
+                        _CanRead = true;
+                    }
+                    catch { }
+                }
+
+                if (_Files[FileUniqueKey].Data != null)
+                {
+                    for (int ir = 0; ir < _Files[FileUniqueKey].Data.Count; ir++)
+                    {
+                        GenContent.Add(FileUniqueKey + "_" + ir.ToString() + "_" + "A", _Files[FileUniqueKey].Data[ir].ValueA, 0);
+                        GenContent.Add(FileUniqueKey + "_" + ir.ToString() + "_" + "B", _Files[FileUniqueKey].Data[ir].ValueB, 1);
+                    }
+                }
             }
 
             return GenContent;
@@ -59,33 +84,49 @@ namespace YDTest.ModReader
         {
             return _CanRead;
         }
-        public byte[] Save(Mod_Content Content)
+        public int Save(Mod_Content Content)
         {
+            int SaveCount = 0;
+
             for (int i = 0; i < Content.Rows.Count; i++)
-            { 
+            {
                 var Row = Content.Rows[i];
 
                 if (Row.Key.Contains("_"))
-                { 
-                    string GetKey = Row.Key = Row.Key.Substring(Row.Key.IndexOf("_") + "_".Length);
+                {
+                    var Params = Row.Key.Split('_');
 
-                    if (GetKey.EndsWith("A") || GetKey.EndsWith("B"))
+                    if (Params.Length > 2)
                     {
-                        int GetRealOffset = int.Parse(GetKey.Substring(0, GetKey.Length - 1));
+                        try
+                        {
+                            int FileUniqueKey = int.Parse(Params[0]);
 
-                        if (GetKey.EndsWith("A"))
-                        {
-                            _Rows[GetRealOffset].ValueA = Row.Data;
+                            if ((Params[2].Equals("A") || Params[2].Equals("B")) && _Files.ContainsKey(FileUniqueKey))
+                            {
+                                int GetRealOffset = int.Parse(Params[1]);
+
+                                if (Params[2].Equals("A"))
+                                {
+                                    _Files[FileUniqueKey].Data[GetRealOffset].ValueA = Row.Data;
+                                }
+                                if (Params[2].Equals("B"))
+                                {
+                                    _Files[FileUniqueKey].Data[GetRealOffset].ValueB = Row.Data;
+                                }
+
+                                if (_Files[FileUniqueKey].Reader.Save(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(_Files[FileUniqueKey].Data))))
+                                {
+                                    SaveCount++;
+                                }
+                            }
                         }
-                        if (GetKey.EndsWith("B"))
-                        {
-                            _Rows[GetRealOffset].ValueB = Row.Data;
-                        }
+                        catch { }
                     }
                 }
             }
 
-            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(_Rows));
+            return SaveCount;
         }
     }
 }
