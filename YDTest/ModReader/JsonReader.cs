@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 using Newtonsoft.Json;
 using NIM_Plugin.Data;
@@ -63,13 +64,14 @@ namespace YDTest.ModReader
                     try
                     {
                         _Files[FileUniqueKey].Data = JsonConvert.DeserializeObject<List<TestJson>>(Json);
-                        _CanRead = true;
                     }
                     catch { }
                 }
 
                 if (_Files[FileUniqueKey].Data != null)
                 {
+                    _CanRead = true;
+
                     for (int ir = 0; ir < _Files[FileUniqueKey].Data.Count; ir++)
                     {
                         GenContent.Add(FileUniqueKey + "_" + ir.ToString() + "_" + "A", _Files[FileUniqueKey].Data[ir].ValueA, 0);
@@ -87,6 +89,8 @@ namespace YDTest.ModReader
         public int Save(Mod_Content Content)
         {
             int SaveCount = 0;
+
+            HashSet<int> Modified = new HashSet<int>();
 
             for (int i = 0; i < Content.Rows.Count; i++)
             {
@@ -115,14 +119,21 @@ namespace YDTest.ModReader
                                     _Files[FileUniqueKey].Data[GetRealOffset].ValueB = Row.Data;
                                 }
 
-                                if (_Files[FileUniqueKey].Reader.Save(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(_Files[FileUniqueKey].Data))))
-                                {
-                                    SaveCount++;
-                                }
+                                Modified.Add(FileUniqueKey);
                             }
                         }
                         catch { }
                     }
+                }
+            }
+
+            foreach (var GetKey in Modified)
+            {
+                var File = _Files[GetKey];
+
+                if (File.Reader.Save(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(File.Data))))
+                {
+                    SaveCount++;
                 }
             }
 
