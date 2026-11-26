@@ -27,6 +27,8 @@ namespace YDTest.ModReader
     }
 
     //Please read the methods I’ve written carefully; they are very important.
+    // IMPORTANT: Implement a public parameterless constructor (new()) for this class.
+    // The host application creates independent instances of your reader using reflection.
     public class JsonReader : I_ModReader
     {
         public static JsonReader Instance = new JsonReader();
