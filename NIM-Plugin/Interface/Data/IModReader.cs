@@ -81,7 +81,6 @@ namespace NIM_Plugin.Data
         }
     }
 
-
     public interface I_ModReader
     {
         /// <summary>
@@ -106,13 +105,10 @@ namespace NIM_Plugin.Data
         /// <summary>
         /// Receives the file list provided by the host application and parses
         /// the files that this plugin can handle.
-        /// 
+        ///
         /// Each Mod_File provides access to the corresponding file through
         /// methods such as Read(), GetFileUniqueKey(), and Save().
-        /// The plugin can decide when to read each file instead of requiring
-        /// the host application to load all file contents into memory in advance.
-        /// 
-        /// This method is called before CanRead().
+        /// The plugin can decide when to read each file.
         /// </summary>
         /// <param name="ModFiles">
         /// The list of files provided by the host application.
