@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lang\MeowHelper.cs" />
     <Compile Include="ModReader\JsonReader.cs" />
     <Compile Include="ADO\SQLiteHelper.cs" />
     <Compile Include="Class1.cs" />

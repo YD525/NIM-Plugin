@@ -4,6 +4,7 @@ using NIM_Plugin;
 using NIM_Plugin.Core;
 using YDTest.ADO;
 using YDTest.ModReader;
+using YDTest.Lang;
 
 namespace YDTest
 {
@@ -109,6 +110,17 @@ namespace YDTest
                         ParamsRef[0] = JsonReader.Instance;
                     }
                 break;
+                case Engine_Method.LoadLanguages:
+                    {
+                        //Demo only. Do not use this Meow class in production. Just for showing how I_Language works. Meow~
+                        ParamsRef = new object[1];
+
+                        ParamsRef[0] = new List<Type>()
+                        {
+                            typeof(MeowHelper)
+                        };
+                    }
+                    break;
             }
         }
 
