@@ -7,6 +7,8 @@ namespace NIM_Plugin
         LoadNodes,
         InitDatabase,
         LoadReaders,
+        LoadLanguages,
+        LoadTextAutoComplete
     }
     public class NIMPlugin
     {
