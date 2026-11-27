@@ -1,7 +1,7 @@
 ﻿
 namespace NIM_Plugin.Translate
 {
-    public interface ITranslate
+    public interface I_Translate
     {
     }
 }

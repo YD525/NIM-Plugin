@@ -73,6 +73,7 @@
     <Compile Include="Core\IPlugin.cs" />
     <Compile Include="DLL\FileSafetyScanner.cs" />
     <Compile Include="Interface\Data\IModReader.cs" />
+    <Compile Include="Language\ILanguage.cs" />
     <Compile Include="NIM_Plugin.cs" />
     <Compile Include="Interface\Node\INode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
